@@ -118,7 +118,7 @@ export const QuizContextProvider = ({ children } : { children: React.ReactNode }
           let localQuizzes: Quiz[] = JSON.parse(localStorage.getItem("quizzes") || "[]");
           localQuizzes = localQuizzes.filter((quiz) => quiz.id !== id);
 
-          let localUserQuizzes: UserQuiz[] = JSON.parse(localStorage.getItem("quizzes") || "[]");
+          let localUserQuizzes: UserQuiz[] = JSON.parse(localStorage.getItem("userQuizzes") || "[]");
           localUserQuizzes = localUserQuizzes.filter((quiz) => quiz.quizId !== id);
 
           localStorage.setItem("quizzes", JSON.stringify(localQuizzes));
