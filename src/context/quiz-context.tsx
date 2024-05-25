@@ -91,14 +91,10 @@ export const QuizContextProvider = ({ children } : { children: React.ReactNode }
 
           const localUserQuizzes = JSON.parse(localStorage.getItem("userQuizzes") || "[]");
 
-          for (let i = 0; i < localUserQuizzes.length; i++) {
-            const localUserQuiz = localUserQuizzes[i];
-
+          for (const localUserQuiz of localUserQuizzes) {
             if (localUserQuiz.quizId === id) {
               localUserQuiz.currentQuestionNumber = 1;
               localUserQuiz.answers = [];
-              localUserQuizzes[i] = localUserQuiz;
-              break;
             }
           }
 
