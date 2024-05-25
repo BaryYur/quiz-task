@@ -72,7 +72,7 @@ export const QuizPage = () => {
 
   return (
     <Container>
-      {currentQuiz &&<div className="pt-[30px] pb-[50px]">
+      {currentQuiz && <div className="pt-[30px] pb-[50px]">
         <h1 className="text-[28px] text-gray-700 font-semibold">
           {currentQuiz.name}
         </h1>

@@ -91,16 +91,21 @@ export const QuizContextProvider = ({ children } : { children: React.ReactNode }
 
           const localUserQuizzes = JSON.parse(localStorage.getItem("userQuizzes") || "[]");
 
-          for (const localUserQuiz of localUserQuizzes) {
-            if (localUserQuiz.id === id) {
+          for (let i = 0; i < localUserQuizzes.length; i++) {
+            const localUserQuiz = localUserQuizzes[i];
+
+            if (localUserQuiz.quizId === id) {
               localUserQuiz.currentQuestionNumber = 1;
               localUserQuiz.answers = [];
+              localUserQuizzes[i] = localUserQuiz;
+              break;
             }
           }
 
           localStorage.setItem("quizzes", JSON.stringify(localQuizzes));
           localStorage.setItem("userQuizzes", JSON.stringify(localUserQuizzes));
           setQuizzes(localQuizzes);
+          setUserQuizzes(localUserQuizzes);
 
           resolve();
         } catch (error) {
